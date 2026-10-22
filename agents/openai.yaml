@@ -1,0 +1,7 @@
+interface:
+  display_name: "Academic Humanizer"
+  short_description: "Humanize academic prose without changing evidence"
+  default_prompt: "Use $academic-humanizer to edit this academic draft while preserving every number, equation, citation, and the requested file format."
+
+policy:
+  allow_implicit_invocation: true

@@ -3,7 +3,7 @@
 <img src="assets/banner.svg" alt="Academic Humanizer: personalized editing for AI-assisted academic drafts, keeping your voice and every claim, number, and citation intact" width="860">
 
 [![license](https://img.shields.io/badge/license-MIT-2f8f57?style=flat-square)](LICENSE)
-&nbsp;![version](https://img.shields.io/badge/version-0.3.2-2f8f57?style=flat-square)
+&nbsp;![version](https://img.shields.io/badge/version-0.4.0-2f8f57?style=flat-square)
 &nbsp;![skill](https://img.shields.io/badge/skill-papers_and_grant_proposals-1c1a15?style=flat-square)
 &nbsp;![built by](https://img.shields.io/badge/built_by-NSF,_CAREER,_NIH_R01-555?style=flat-square)
 
@@ -65,6 +65,8 @@ example, an NIH Specific Aims page, and a funded NSF CAREER summary.
   definitions, symbols, and every citation. It doesn't change a number or a reference.
 - **Has a separate mode for grant proposals (NSF, NIH):** it keeps the vision a paper would trim, and
   spends most of the effort on the first pages, since that's what reviewers score.
+- **Handles DOCX and PDF in Codex:** preserves the source, routes edits through Codex's document or PDF
+  workflow, checks numbers/citations/equations, and renders every delivered page for visual review.
 
 ## Install
 
@@ -74,6 +76,10 @@ git clone https://github.com/AIScientists-Dev/academic-humanizer ~/.claude/skill
 
 It is a plain `SKILL.md` plus examples, so it also runs as a skill or system prompt for **Codex** and
 **MorphMind**. Point your agent at `SKILL.md`.
+
+For Codex, install the skill folder under `~/.codex/skills/academic-humanizer`. The next Codex turn can
+then invoke it as `$academic-humanizer`; DOCX and PDF requests also use Codex's bundled document/PDF
+workflows described in [`references/file-formats.md`](references/file-formats.md).
 
 ## Use
 

@@ -1,15 +1,17 @@
 ---
 name: academic-humanizer
-version: 0.3.3
 description: |
   Improve the clarity and voice of AI-assisted academic writing (papers, theses, rebuttals) and
   funding proposals (NSF Project Summary/Description, NIH Specific Aims): preserve scholarly
   conventions, match claims to evidence (and, for proposals, claims to feasibility), and match the
-  author's own voice. It never changes a number, result, or citation, and it is not for evading
-  AI-use disclosure. Use when editing AI-assisted academic prose or grant proposals.
+  author's own voice. Accept plain text, source files, DOCX, and text-based or scanned PDFs while
+  preserving document structure and layout when a file deliverable is requested. It never changes a
+  number, result, or citation, and it is not for evading AI-use disclosure. Use when editing
+  AI-assisted academic prose or grant proposals.
 license: MIT
-compatibility: claude-code codex morphmind opencode
-allowed-tools: [Read, Write, Edit, Grep, Glob, AskUserQuestion]
+metadata:
+  version: "0.4.0"
+  compatibility: "claude-code codex morphmind opencode"
 ---
 
 # Academic Humanizer
@@ -34,9 +36,10 @@ the discipline a general humanizer misses: **every claim earns its number, figur
 verb is stronger than its evidence.**
 
 ## Process
-1. **Read** the manuscript and any author writing sample; note the document type (paper vs. funding
-   proposal) and the target venue or funding agency. For proposals, also apply Layer 6 and preserve
-   appropriate vision.
+1. **Read** the manuscript and any author writing sample; note the input format, document type (paper
+   vs. funding proposal), and target venue or funding agency. For DOCX or PDF input, follow
+   [references/file-formats.md](references/file-formats.md). For proposals, also apply Layer 6 and
+   preserve appropriate vision.
 2. **Audit** (do not edit yet): list each detected pattern with its location and proposed fix, and each
    empirical claim's evidence status.
 3. **Rewrite**: same structure and content, all claims and citations preserved, tells removed, over-claims
@@ -259,3 +262,5 @@ the gap for the author rather than papering over it.
 ## Output
 Return the cleaned text plus a short change report: patterns removed (by type), claims softened or given
 evidence pointers, and any voice/venue notes. Confirm that no number, equation, or citation was altered.
+When the input is DOCX or PDF and the user asks for a file, return a new verified file in the requested
+format plus the change report; never overwrite the source file.
